@@ -8,7 +8,7 @@ on:
         required: false
       KERNEL_TREE:
         description: 'Kernel Tree'
-        default: 'https://github.com/AlirezaParsi/pocof3'
+        default: 'https://github.com/pangomin/kernel_xiaomi_sm8250.git'
         required: true
       KERNEL_TREE_BRANCH:
         description: 'Kernel Tree Branch'
@@ -106,7 +106,7 @@ jobs:
         git submodule init && git submodule update
         export ARCH=arm64
         export SUBARCH=ARM64
-        export KBUILD_BUILD_USER="aliza"
+        export KBUILD_BUILD_USER="p"
         export KBUILD_BUILD_HOST="Github"
         make O=out vendor/alioth_defconfig PATH="${{ steps.tools.outputs.tools-folder }}/clang/bin:$PATH"
         make O=out CC=clang -j$(nproc --all) PATH="${{ steps.tools.outputs.tools-folder }}/clang/bin:$PATH" CROSS_COMPILE=aarch64-linux-gnu- LLVM=1 LLVM_IAS=1
